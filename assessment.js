@@ -19,28 +19,18 @@ const elements = [
 const getElementFeature = (id) => { 
 
     const allElement = (elements) => {
-
         for(const element of elements){
-
-                if (element.id === id){
-
-                    return element.type;
-
-                    }
-                if (element.child){
-
-                    const result = allElement(element.child);
-
-                    if (result){
-
-                            return result;
-
-                    }
-
+            if (element.id === id){
+                return element.type;
+            }
+            
+            if (element.child){
+                const result = allElement(element.child);
+                if (result){
+                    return result;
                 }
-
+            }
         }
-
     }
 return allElement(elements);
 };
